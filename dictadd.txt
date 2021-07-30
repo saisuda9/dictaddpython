@@ -1,0 +1,53 @@
+
+In [2]: data=[{"name":"srikanth","mobno":1234,"sal":1000},{"name":"sai","mobno":4321,"sal":2000},{"na
+   ...: me":"nani","mobno":5678}]
+
+In [3]: def add(name,mobno,sal):
+   ...:     if any(i['mobno']==mobno for i in data):
+   ...:         print('Record already present')
+   ...:     else:
+   ...:         data.append({'name': name, 'mobno': mobno, 'sal': sal})
+   ...:
+
+In [4]: add('srikanth', 1234,1000)
+Record already present
+
+In [5]: data
+Out[5]:
+[{'name': 'srikanth', 'mobno': 1234, 'sal': 1000},
+ {'name': 'sai', 'mobno': 4321, 'sal': 2000},
+ {'name': 'nani', 'mobno': 5678}]
+
+In [6]: add('srikanth', 234,1000)
+
+In [7]: data
+Out[7]:
+[{'name': 'srikanth', 'mobno': 1234, 'sal': 1000},
+ {'name': 'sai', 'mobno': 4321, 'sal': 2000},
+ {'name': 'nani', 'mobno': 5678},
+ {'name': 'srikanth', 'mobno': 234, 'sal': 1000}]
+
+In [8]: any([1,2,243])
+Out[8]: True
+
+In [9]: any(False)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-9-2daa0032c054> in <module>
+----> 1 any(False)
+
+TypeError: 'bool' object is not iterable
+
+In [10]: any(1,2,2)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-10-643be7f2af0f> in <module>
+----> 1 any(1,2,2)
+
+TypeError: any() takes exactly one argument (3 given)
+
+In [11]: any([0])
+Out[11]: False
+
+In [12]: any([2])
+Out[12]: True
